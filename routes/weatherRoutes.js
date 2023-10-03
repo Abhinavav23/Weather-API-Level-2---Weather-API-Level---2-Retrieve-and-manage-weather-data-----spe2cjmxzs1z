@@ -4,8 +4,12 @@ const {
   getWeatherByCityName,
   getWeatherByZipCode,
   postWeatherAlert,
+  getAllWeatherData
 } = require('../controllers/weatherController');
 const isLoggedIn = require('../middlewares/isLoggedIn');
+
+// isLoggedIn --> middleware
+router.get('/all', isLoggedIn, getAllWeatherData)
 
 router.get('/city/:cityName', isLoggedIn, getWeatherByCityName);
 
